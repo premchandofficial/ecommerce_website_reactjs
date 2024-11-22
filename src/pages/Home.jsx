@@ -83,26 +83,28 @@ function Home() {
 
   return (
     <div className=" text-[#0a0a0a] w-full h-fit bg-[#e4e3e3] ">
-      <header className="flex justify-between w-full bg-[#3281f8] sticky top-0">
-        <div className="flex text-black">
-          <h1 className="text-2xl p-4">
-            <div className="text-2xl mx-12">
+
+      <header className="bg-[#3281f8] sticky top-0 sm:flex sm:justify-between sm:px-[20px]">
+
+        <div className=" text-black flex justify-between  px-[10px] sm:flex sm:pb-[10px] sm:justify-between  ">
+          <div className="px-[50px]">
+            <div className="pt-[10px]">
               <img
-                src="../../public/mylogo.jpg"
+                src="../../public/e-commerce-logo2.png"
                 alt="logo"
-                className="w-[100px] h-[60px]"
+                className="w-[50px] h-[50px]"
               />
             </div>
-          </h1>
-          <div className="flex items-center justify-center">
+          </div>
+          <div className="pt-[20px]">
             <input
               type="text"
               onChange={searchFilterChange}
               placeholder="Search"
-              className="h-[40px] py-4 my-4 pl-6 bg-[#e2dbdb] text-1xl outline-none text-[22px] rounded-l-full"
+              className="h-[30px] w-[180px] pl-[10px] rounded-l-full"
             />
             <button
-              className="bg-[#038b47] h-[40px] px-4 text-2xl rounded-r-full text-[white]"
+              className="bg-[#038b47] h-[30px] px-[8px] rounded-r-full text-[white]"
               onClick={() => searchFilters()}
             >
               Search
@@ -110,22 +112,26 @@ function Home() {
           </div>
         </div>
 
-        <nav className="flex flex-row px-8 mt-[15px]">
+        <nav className="flex items-end justify-end px-8 mt-[15px] sm:pb-[5px]">
           <Link className="flex" to={"/cartpage"}>
             <FaShoppingCart className="text-4xl mx-[5px]" />
-            <sup className="text-[22px] bg-[white] text-center py-[18px] mb-[6px] h-[30px] w-[35px] rounded-full">
+            <sup className="text-[22px] bg-[white] text-center py-[16px] mb-[6px] h-[10px] w-[30px] rounded-full">
               {totalQuantity}
             </sup>
           </Link>
         </nav>
       </header>
 
-      <div className="flex">
+      <div> 
+        <img src="../../public/Sale-banners.webp" alt="" className="w-full"/>
+      </div>
 
-        <aside className="text-[22px] w-[20%] text-[black] border-r-[1px] border-[#057dee] ">
+      <div className="">
 
-          <h1 className="text-center p-[15px] font-bold">Filter By Category</h1>
-          <div className="flex flex-col items-start font-bold">
+        <aside className="text-[22px] text-[black] border-[#057dee] sm:pt-[40px] sm:px-[50px]">
+
+          <h1 className="text-center pt-[15px] font-bold text-[30px]">Filter By Category</h1>
+          <div className="font-bold">
             <button
               className="mx-[20px] my-[10px] border-b-[2px] border-[black]"
               onClick={() => setMainProducts(category)}
@@ -157,10 +163,10 @@ function Home() {
               Electonics
             </button>
           </div>
-          <div className="mx-[20px] my-[40px]">
+          <div className=" mx-[20px] my-[0px] font-bold sm:pt-[15px]">
           
             <label htmlFor="he">
-              Filter by Price <br /> $. {minPrice} - {maxPrice}
+              Filter by Price $.  { minPrice} - {maxPrice}
             </label>
             <br />
             <input
@@ -177,7 +183,7 @@ function Home() {
         </aside>
 
         
-          <main className="flex flex-wrap w-[80%] items-center justify-center my-4 ">
+          <main className="flex flex-wrap items-center justify-center my-4 sm:gap-[20px] sm:pt-[20px] ">
           {mainProducts.map((products, index) => {
               const { image, price, title } = products;
               let text = title.slice(0, 25);

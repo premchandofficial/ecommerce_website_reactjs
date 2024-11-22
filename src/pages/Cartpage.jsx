@@ -41,13 +41,13 @@ function Cartpage() {
       </div>
       <div className="text-3xl m-2">Total Items : {totalItems}</div>
 
-      <div className="flex items-center bg-[#0f56ee] h-[50px] text-[white] text-[22px]">
+      {/* <div className="flex items-center bg-[#0f56ee] h-[50px] text-[white] text-[22px]">
         <div className=" w-[20%] text-center">Products</div>
         <div className=" w-[20%] text-center">Price</div>
         <div className=" w-[20%] text-center">Quantity</div>
         <div className=" w-[20%] text-center">Total Price</div>
         <div className=" w-[20%] text-center">Remove</div>
-      </div>
+      </div> */}
 
       <div className="">
         <div>
@@ -55,6 +55,7 @@ function Cartpage() {
             let price=item.price.toFixed(2)
             let x=item.quantity*item.price;
             let itemPrice=x.toFixed(2)
+            let name= item.title.slice(0,25)
             
 
             // console.log(item)
@@ -62,22 +63,27 @@ function Cartpage() {
               <div key={index}>
                 <div></div>
                 <hr />
-                <div className="flex my-[20px] px-[20px] text-[18px] font-medium">
+                <div className=" font-medium sm:flex sm:justify-between sm:px-[20px] sm:p-[10px]">
+                  <div>
 
-                  <div className="w-[20%] flex">
+                  <div className="flex">
                     <img
                       src={item.image}
                       alt="cartimg"
-                      className="w-[60px] h-[60px]"
+                      className="w-[70px] h-[70px] p-[5px]"
                     />
+                       <div>
+                            
+                    <p className="pt-[10px]">{name}</p>
+                  <p className="">Price : $ {price}</p>
+                       </div>
 
-                    <p className="pl-[10px]">{item.title}</p>
                   </div>
 
-                  <p className="w-[20%] flex justify-center items-center text-[22px]">Price : $ {price}</p>
 
-
-                  <div className="w-[20%] flex justify-center items-center">
+                  </div>
+                  <div className="flex justify-around py-[10px] px-[40px]">
+                  <div className="flex">
                     <button className="text-[40px]"
                       onClick={() => dispatch(incrementQuantity(item.id))}
                     >
@@ -99,14 +105,20 @@ function Cartpage() {
                     </button>
                   </div>
 
-                  <p className="w-[20%] flex justify-center items-center text-[22px]">$ {itemPrice}</p>
                   <button
-                    className="w-[20%] flex justify-center items-center text-[30px]"
+                    className="w-[20%] flex justify-center items-center text-[30px] sm:mx-[300px]"
                     onClick={() => dispatch(removeItem(item.id))}
                   >
                     <FaTrash />
                   </button>
 
+
+                  </div>
+
+                 
+
+
+                 
                 </div>
               </div>
             );
@@ -116,9 +128,9 @@ function Cartpage() {
 
         <div className="bg-[#0f56ee] ">
           <div className="text-[25px] py-4 px-8 font-medium text-[white]">
-            <p>Total Product's Quantity : $ {totalQuantity}</p>
+            <p>Total Quantity : $ {totalQuantity}</p>
 
-            <p>Total Product's Price : $ {totalPrice}</p>
+            <p>Total Price : $ {totalPrice}</p>
           </div>
           <button className="bg-[#02990e] text-3xl py-4 px-8 text-[white] w-full text-left flex gap-[10px]">
             Order Now 
